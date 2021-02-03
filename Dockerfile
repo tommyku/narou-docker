@@ -16,10 +16,6 @@ RUN set -x \
  && mv ${AOZORAEPUB3_FILE} /aozoraepub3 \
  # install openjdk11
  && apk --no-cache add openjdk11 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
- # install kindlegen
- && wget http://kindlegen.s3.amazonaws.com/${KINDLEGEN_FILE} \
- && tar -xzf ${KINDLEGEN_FILE} \
- && mv kindlegen /aozoraepub3 \
  # install Narou.rb
  && apk --update --no-cache --virtual .build-deps add \
       build-base \
@@ -33,6 +29,8 @@ RUN set -x \
  && rm -rf /temp
 
 WORKDIR /novel
+
+COPY kindlegen /aozoraepub3
 
 COPY init.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/init.sh

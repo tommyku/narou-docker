@@ -79,6 +79,17 @@ $ docker pull whiteleaf/narou
 
 更新がある場合、上記コマンドで環境を最新にできます
 
+# イメージ自分で docker build
+
+元々のkindlegenダウンロードリンクはもう使いません。
+自分でどこかでダウンロードし（以前の`whiteleaf/narou:latest`からコピーも）、Dockerfileと同じ場所置きから、docker buildをする。
+
+```sh
+$ md5sum kindlegen
+7a4df7230ba8d5fa1bd76599828bebac  kindlegen
+$ docker build -t whiteleaf/narou .
+```
+
 # CUI としてコマンドを使いたい場合
 
 ## docker で直接使う
